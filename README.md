@@ -1,8 +1,8 @@
 # ads2-senac
-Atividade CRUD em JAVA+SPRING BOOT
+<h1>Atividade CRUD em JAVA+SPRING BOOT</h1>
 
 
-Passo 1: Configuração do Projeto
+<h2>Passo 1: Configuração do Projeto</h2>
 Você pode começar criando um novo projeto Spring Boot usando o Spring Initializr (https://start.spring.io/). Escolha as seguintes opções:
 
 Project: Maven Project
@@ -11,7 +11,7 @@ Spring Boot: 3.x (ou a versão mais recente)
 Dependencies: Spring Web, Spring Data JPA, H2 Database (para um banco de dados em memória, pode substituir por MySQL ou outro banco em produção)
 Clique em "Generate" e baixe o projeto. Depois, descompacte o arquivo e abra o projeto em sua IDE favorita.
 
-Passo 2: Criando a Entidade
+<h2>Passo 2: Criando a Entidade</h2>
 Vamos começar criando a entidade User.
 
 User.java
@@ -59,13 +59,13 @@ public class User {
     }
 }
 
-Explicação das Anotações:
+<h2>Explicação das Anotações:</h2>
 
 @Entity: Indica que esta classe é uma entidade JPA. O Spring Data JPA criará uma tabela para esta entidade no banco de dados.
 @Id: Define o campo que será a chave primária da entidade.
 @GeneratedValue(strategy = GenerationType.IDENTITY): Indica que o valor da chave primária será gerado automaticamente pelo banco de dados.
 
-Passo 3: Criando o Repositório
+<h2>Passo 3: Criando o Repositório</h2>
 Crie um repositório para a entidade User.
 
 UserRepository.java
@@ -80,7 +80,7 @@ public interface UserRepository extends JpaRepository<User, Long> {
 
 JpaRepository: Interface fornecida pelo Spring Data JPA que contém métodos prontos para operações CRUD. Você não precisa implementar esses métodos; o Spring Data JPA faz isso por você.
 
-Passo 4: Criando o Serviço
+<h2>Passo 4: Criando o Serviço</h2>
 O serviço conterá a lógica de negócios para as operações CRUD.
 
 UserService.java
@@ -125,11 +125,10 @@ Explicação das Anotações:
 @Autowired: Injeta uma dependência automaticamente. Aqui, o repositório UserRepository é injetado no serviço.
 
 
-Passo 5: Criando o Controlador
+<h2>Passo 5: Criando o Controlador</h2>
 O controlador expõe endpoints REST para a aplicação.
 
 UserController.java
-
 
 package com.example.demo.controller;
 
@@ -187,7 +186,7 @@ public class UserController {
     }
 }
 
-Explicação das Anotações:
+ 🔥<h2>Explicação das Anotações:</h2>🔥
 
 @RestController: Combina @Controller e @ResponseBody. Indica que esta classe é um controlador REST e os métodos retornarão diretamente a resposta no corpo da resposta HTTP.
 @RequestMapping("/users"): Define a URL base para todos os endpoints neste controlador.
@@ -197,7 +196,7 @@ Explicação das Anotações:
 
 
 
-Passo 6: Configuração do Banco de Dados
+🔥Passo 6: Configuração do Banco de Dados🔥
 Para um banco de dados em memória, o H2 está configurado por padrão. Se você estiver usando outro banco de dados, ajuste o application.properties conforme necessário.
 
 application.properties
@@ -210,7 +209,7 @@ spring.datasource.password=password
 spring.jpa.database-platform=org.hibernate.dialect.H2Dialect
 spring.h2.console.enabled=true
 
-Conclusão
+<h2>Conclusão</h2>
 Você agora tem uma aplicação Spring Boot com um CRUD completo para gerenciar usuários. Para executar a aplicação, use a classe principal gerada pelo Spring Boot:
 
 Rodando a aplicação, você pode acessar a API REST para criar, ler, atualizar e excluir usuários. O console H2 pode ser acessado em http://localhost:8080/h2-console para visualizar o banco de dados em memória.
